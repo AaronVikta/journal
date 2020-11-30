@@ -1,0 +1,38 @@
+<div class="page-content page-container" id="page-content">
+    <div class="padding">
+      <div class="row container d-flex justify-content-center">
+        <div class="col-lg-12">
+          <div class="card px-3">
+            <div class="card-body">
+              <h4 class="card-title">Note list</h4>
+              <div class="add-items d-flex"> 
+                <form [formGroup]="addForm" (ngSubmit)="onSubmit(addForm.value)">
+                  <input type="text" formControlName="title" class="form-control note-list-input"
+                   placeholder="Title of what you did?"><br/>
+                   <textarea formControlName="body" class="form-control note-list-input"
+                   placeholder="Description of the task done"></textarea><br/>
+                  <button
+                  class="add btn btn-primary font-weight-bold todo-list-add-btn">Add</button> 
+                </form>
+              </div>
+              <pre>{{(notes$ | async) ?. notes | json }}</pre>
+              <div class="list-wrapper">
+                <ul class="d-flex flex-column-reverse note-list">
+                  <li *ngFor="let note of (notes$ | async) ?. notes" [ngClass]="{'completed': note.is_read}">
+                    <div class="form-check"> 
+                      <label class="form-check-label"> 
+                        <input (click)="markDone(note.id, note.is_read)" class="checkbox" type="checkbox" [checked]="note.is_read">
+                        {{note.title}} <i class="input-helper"></i></label> 
+                        <div>
+                            {{note.body}}
+                        </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
