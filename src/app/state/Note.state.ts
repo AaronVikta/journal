@@ -17,9 +17,10 @@ export interface NoteStateModel{
 @Injectable()
 export class NoteState implements NgxsOnInit {
 
-   async ngxsOnInit(ctx:any){
-        await ctx.dispatch(new NoteActions.FectchNotes())
+   ngxsOnInit(ctx:StateContext<NoteStateModel>){
+        ctx.dispatch(new NoteActions.FetchNotes())
     }
+    
 
     @Action(NoteActions.AddNote)
     addNote(

@@ -3,4 +3,5 @@ export interface Note{
     title:string;
     body:string;
     is_read: boolean;
+    notes:any[]
 }

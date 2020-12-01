@@ -16,7 +16,7 @@ export class NoteComponentComponent  {
   title!: 'Notes-app';
 
   @Select(NoteState)
-  notes$! :Observable<Note[]>
+  notes$ :Observable<Note> | undefined
 
   addForm = new FormGroup({
     title: new FormControl(''),

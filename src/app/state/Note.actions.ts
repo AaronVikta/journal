@@ -7,13 +7,13 @@ export namespace NoteActions{
         constructor(public payload: Note){}
     }
     
-    export class FectchNotes{
-        static readonly type = '[Note] Fetch';
+    export class FetchNotes{
+        static readonly type = '[Note[]] Fetch';
       
     }
     
     export class markRead {
-        static readonly type = '[Todo] markDone';
+        static readonly type = '[Note] markDone';
         constructor(public payload: string, public is_read: boolean) { }
     }
 }
